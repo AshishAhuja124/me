@@ -1,1 +1,0 @@
-# Process-Global-keyword-Example
