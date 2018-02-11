@@ -1,0 +1,32 @@
+Search:<input type="text" name="search" [(ngModel)]="search">
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+      <td>code</td>
+      <td>Name</td>
+      <td>Position</td>
+      <td>Department</td>
+      <td> salary</td>
+      <td width="275" align="center">Action</td>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let employee of model | emp:search'>
+      <td><a [routerLink]="['/detail',employee.code]">{{employee.code}}</a></td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.position}}</td>
+      <td>{{employee.department}}</td>
+      <td>{{employee.salary}}</td>
+      <td width="275">
+        <a class="btn btn-danger" (click)="deleteEmployee(employee._id)">Delete</a>
+        <a class="btn btn-success"  routerLink="/edit/{{employee._id}}">Edit</a>
+        
+    </td>
+    <td> <button class="btn btn-primary"(click)='alertMe(employee.salary)'[appHighlight]=" employee.salary">Click Me </button>     
+      
+     </tr>
+    </tbody>
+  </table>
+
+
